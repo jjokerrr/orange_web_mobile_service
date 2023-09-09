@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bupt.common.flow.dao.FlowVariableDisplayMapper">
+    <resultMap id="BaseResultMap" type="com.bupt.common.flow.model.FlowVariableDisplay">
+        <result column="variable_id" jdbcType="VARCHAR" property="variableId"/>
+        <result column="task_key" jdbcType="VARCHAR" property="taskKey"/>
+        <result column="variable_label" jdbcType="VARCHAR" property="variableLabel"/>
+        <result column="variable_authority" jdbcType="VARCHAR" property="variableAuthority"/>
+        <result column="entry_id" jdbcType="VARCHAR" property="entryId"/>
+    </resultMap>
+    <delete id="deleteByEntry" parameterType="java.lang.String">
+        delete from zz_flow_variable_display
+        where entry_id = '${entryId}'
+    </delete>
+    <delete id="delete" parameterType="java.lang.String">
+        delete from zz_flow_variable_display
+        where task_key = '${taskKey}'
+    </delete>
+    <insert id="add" parameterType="com.bupt.common.flow.model.FlowVariableDisplay">
+        insert into zz_flow_variable_display (`variable_id`,`task_key`,`variable_label`,`variable_authority`,`entry_id`)
+        values ('${variableId}','${taskKey}','${variableLabel}','${variableAuthority}','${entryId}')
+    </insert>
+    <select id="select" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select variable_id,task_key,variable_label,variable_authority,entry_id
+        from zz_flow_variable_display
+        where task_key = '${taskKey}'
+    </select>
+    <select id="selectByEntry" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select variable_id,task_key,variable_label,variable_authority,entry_id
+        from zz_flow_variable_display
+        where entry_id = '${entryId}'
+    </select>
+</mapper>

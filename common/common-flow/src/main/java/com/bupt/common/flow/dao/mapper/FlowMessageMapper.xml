@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bupt.common.flow.dao.FlowMessageMapper">
+    <resultMap id="BaseResultMap" type="com.bupt.common.flow.model.FlowMessage">
+        <id column="message_id" jdbcType="BIGINT" property="messageId"/>
+        <result column="tenant_id" jdbcType="BIGINT" property="tenantId"/>
+        <result column="app_code" jdbcType="VARCHAR" property="appCode"/>
+        <result column="message_type" jdbcType="TINYINT" property="messageType"/>
+        <result column="message_content" jdbcType="VARCHAR" property="messageContent"/>
+        <result column="remind_count" jdbcType="INTEGER" property="remindCount"/>
+        <result column="work_order_id" jdbcType="BIGINT" property="workOrderId"/>
+        <result column="process_definition_id" jdbcType="VARCHAR" property="processDefinitionId"/>
+        <result column="process_definition_key" jdbcType="VARCHAR" property="processDefinitionKey"/>
+        <result column="process_definition_name" jdbcType="VARCHAR" property="processDefinitionName"/>
+        <result column="process_instance_id" jdbcType="VARCHAR" property="processInstanceId"/>
+        <result column="process_instance_initiator" jdbcType="VARCHAR" property="processInstanceInitiator"/>
+        <result column="task_id" jdbcType="VARCHAR" property="taskId"/>
+        <result column="task_definition_key" jdbcType="VARCHAR" property="taskDefinitionKey"/>
+        <result column="task_name" jdbcType="VARCHAR" property="taskName"/>
+        <result column="task_start_time" jdbcType="TIMESTAMP" property="taskStartTime"/>
+        <result column="task_assignee" jdbcType="VARCHAR" property="taskAssignee"/>
+        <result column="task_finished" jdbcType="BOOLEAN" property="taskFinished"/>
+        <result column="business_data_shot" jdbcType="LONGVARCHAR" property="businessDataShot"/>
+        <result column="online_form_data" jdbcType="BOOLEAN" property="onlineFormData"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="update_user_id" jdbcType="BIGINT" property="updateUserId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_user_id" jdbcType="BIGINT" property="createUserId"/>
+        <result column="create_username" jdbcType="VARCHAR" property="createUsername"/>
+    </resultMap>
+
+    <sql id="filterRef">
+        <if test="tenantId == null">
+            AND a.tenant_id IS NULL
+        </if>
+        <if test="tenantId != null">
+            AND a.tenant_id = #{tenantId}
+        </if>
+        <if test="appCode == null">
+            AND a.app_code IS NULL
+        </if>
+        <if test="appCode != null">
+            AND a.app_code = #{appCode}
+        </if>
+    </sql>
+
+    <select id="getRemindingMessageListByUser" resultMap="BaseResultMap">
+        SELECT a.* FROM zz_flow_message a
+        <where>
+            <include refid="filterRef"/>
+            AND a.task_finished = false
+            AND a.message_type = 0
+            AND (a.task_assignee = #{loginName} OR EXISTS (SELECT * FROM zz_flow_msg_candidate_identity b
+                WHERE a.message_id = b.message_id AND b.candidate_id IN
+                <foreach collection="groupIdSet" index="index" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>))
+        </where>
+        ORDER BY a.update_time DESC
+    </select>
+
+    <select id="getCopyMessageListByUser" resultMap="BaseResultMap">
+        SELECT a.* FROM zz_flow_message a
+        <where>
+            <include refid="filterRef"/>
+            AND a.message_type = 1
+            AND EXISTS (SELECT * FROM zz_flow_msg_candidate_identity b
+                WHERE a.message_id = b.message_id AND b.candidate_id IN
+                <foreach collection="groupIdSet" index="index" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>)
+            <if test="!read">
+            AND NOT EXISTS (SELECT * FROM zz_flow_msg_identity_operation c
+                WHERE a.message_id = c.message_id AND c.login_name = #{loginName})
+            </if>
+            <if test="read">
+            AND EXISTS (SELECT * FROM zz_flow_msg_identity_operation c
+                WHERE a.message_id = c.message_id AND c.login_name = #{loginName})
+            </if>
+        </where>
+        ORDER BY a.update_time DESC
+    </select>
+
+    <select id="countRemindingMessageListByUser" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM zz_flow_message a
+        <where>
+            <include refid="filterRef"/>
+            AND a.task_finished = false
+            AND a.message_type = 0
+            AND (a.task_assignee = #{loginName} OR EXISTS (SELECT * FROM zz_flow_msg_candidate_identity b
+                WHERE a.message_id = b.message_id AND b.candidate_id IN
+                <foreach collection="groupIdSet" index="index" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>))
+        </where>
+    </select>
+
+    <select id="countCopyMessageListByUser" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM zz_flow_message a
+        <where>
+            <include refid="filterRef"/>
+            AND a.message_type = 1
+            AND EXISTS (SELECT * FROM zz_flow_msg_candidate_identity b
+                WHERE a.message_id = b.message_id AND b.candidate_id IN
+                <foreach collection="groupIdSet" index="index" item="item" separator="," open="(" close=")">
+                    #{item}
+                </foreach>)
+            AND NOT EXISTS (SELECT * FROM zz_flow_msg_identity_operation c
+                WHERE a.message_id = c.message_id AND c.login_name = #{loginName})
+        </where>
+    </select>
+</mapper>

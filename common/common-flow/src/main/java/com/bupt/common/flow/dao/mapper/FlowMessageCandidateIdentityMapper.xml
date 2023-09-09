@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bupt.common.flow.dao.FlowMessageCandidateIdentityMapper">
+    <resultMap id="BaseResultMap" type="com.bupt.common.flow.model.FlowMessageCandidateIdentity">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="message_id" jdbcType="BIGINT" property="messageId"/>
+        <result column="candidate_type" jdbcType="VARCHAR" property="candidateType"/>
+        <result column="candidate_id" jdbcType="VARCHAR" property="candidateId"/>
+    </resultMap>
+
+    <delete id="deleteByProcessInstanceId">
+        DELETE FROM zz_flow_msg_candidate_identity a
+        WHERE EXISTS (SELECT * FROM zz_flow_message b
+            WHERE a.message_id = b.message_id AND b.process_instance_id = #{processInstanceId})
+    </delete>
+</mapper>
