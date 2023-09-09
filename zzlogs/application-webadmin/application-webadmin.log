@@ -2611,3 +2611,71 @@ AjCaptchaProperties{type=DEFAULT, jigsaw='classpath:images/jigsaw', picClick='cl
 [INFO ] [2023-09-09 20:37:09] T:[] S:[] U:[] [main] ==> Starting ProtocolHandler ["http-nio-8082"]
 [INFO ] [2023-09-09 20:37:09] T:[] S:[] U:[] [main] ==> Tomcat started on port(s): 8082 (http) with context path ''
 [INFO ] [2023-09-09 20:37:09] T:[] S:[] U:[] [main] ==> Started WebAdminApplication in 29.681 seconds (JVM running for 30.887)
+[INFO ] [2023-09-09 20:39:33] T:[] S:[] U:[] [background-preinit] ==> HV000001: Hibernate Validator 6.2.0.Final
+[INFO ] [2023-09-09 20:39:34] T:[] S:[] U:[] [main] ==> Starting WebAdminApplication using Java 11.0.2 on DESKTOP-H3K4U9D with PID 2912 (D:\Project\approvalFlow\flow_bupt\admin-project\flow_bupt_service\application-webadmin\target\classes started by 17586 in D:\Project\approvalFlow\flow_bupt\admin-project\flow_bupt_service)
+[INFO ] [2023-09-09 20:39:34] T:[] S:[] U:[] [main] ==> The following 1 profile is active: "dev"
+[INFO ] [2023-09-09 20:39:37] T:[] S:[] U:[] [main] ==> Bean 'commonWebMvcConfig' of type [com.bupt.common.core.config.CommonWebMvcConfig$$EnhancerBySpringCGLIB$$fac6b4d9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] [2023-09-09 20:39:40] T:[] S:[] U:[] [main] ==> Tomcat initialized with port(s): 8082 (http)
+[INFO ] [2023-09-09 20:39:40] T:[] S:[] U:[] [main] ==> Initializing ProtocolHandler ["http-nio-8082"]
+[INFO ] [2023-09-09 20:39:40] T:[] S:[] U:[] [main] ==> Starting service [Tomcat]
+[INFO ] [2023-09-09 20:39:40] T:[] S:[] U:[] [main] ==> Starting Servlet engine: [Apache Tomcat/9.0.73]
+[INFO ] [2023-09-09 20:39:41] T:[] S:[] U:[] [main] ==> Initializing Spring embedded WebApplicationContext
+[INFO ] [2023-09-09 20:39:41] T:[] S:[] U:[] [main] ==> Root WebApplicationContext: initialization completed in 7414 ms
+[INFO ] [2023-09-09 20:39:43] T:[] S:[] U:[] [main] ==> {dataSource-1,application-webadmin} inited
+[INFO ] [2023-09-09 20:39:44] T:[] S:[] U:[] [main] ==> {dataSource-2,application-webadmin} inited
+[INFO ] [2023-09-09 20:39:45] T:[] S:[] U:[] [main] ==> {dataSource-3,application-webadmin} inited
+[INFO ] [2023-09-09 20:39:45] T:[] S:[] U:[] [main] ==> Filter characterEncodingFilter was not registered (possibly already registered?)
+[ERROR] [2023-09-09 20:39:45] T:[] S:[] U:[] [main] ==> For security constraints with URL pattern [/*] only the HTTP methods [TRACE HEAD DELETE SEARCH PROPFIND COPY PUT PATCH] are covered. All other methods are uncovered.
+[INFO ] [2023-09-09 20:39:46] T:[] S:[] U:[] [main] ==> Redisson 3.15.4
+[INFO ] [2023-09-09 20:39:47] T:[] S:[] U:[] [redisson-netty-2-13] ==> 1 connections initialized for /10.109.252.70:6379
+[INFO ] [2023-09-09 20:39:47] T:[] S:[] U:[] [redisson-netty-2-9] ==> 5 connections initialized for /10.109.252.70:6379
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> Can not find table primary key in Class: "com.bupt.webadmin.upms.model.SysMenuPermCode".
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> class com.bupt.webadmin.upms.model.SysMenuPermCode ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> Can not find table primary key in Class: "com.bupt.webadmin.upms.model.SysPermCodePerm".
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> class com.bupt.webadmin.upms.model.SysPermCodePerm ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> Can not find table primary key in Class: "com.bupt.webadmin.upms.model.SysRoleMenu".
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> class com.bupt.webadmin.upms.model.SysRoleMenu ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> Can not find table primary key in Class: "com.bupt.webadmin.upms.model.SysUserRole".
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> class com.bupt.webadmin.upms.model.SysUserRole ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> Can not find table primary key in Class: "com.bupt.common.online.model.OnlineColumnRule".
+[WARN ] [2023-09-09 20:39:48] T:[] S:[] U:[] [main] ==> class com.bupt.common.online.model.OnlineColumnRule ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+[WARN ] [2023-09-09 20:39:50] T:[] S:[] U:[] [main] ==> Can not find table primary key in Class: "com.bupt.common.flow.model.FlowTaskExt".
+[WARN ] [2023-09-09 20:39:50] T:[] S:[] U:[] [main] ==> class com.bupt.common.flow.model.FlowTaskExt ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+[WARN ] [2023-09-09 20:39:50] T:[] S:[] U:[] [main] ==> [com.bupt.common.flow.dao.FlowVariableDisplayMapper.delete] Has been loaded by XML or SqlProvider or Mybatis's Annotation, so ignoring this injection for [class com.baomidou.mybatisplus.core.injector.methods.Delete]
+[INFO ] [2023-09-09 20:39:55] T:[] S:[] U:[] [main] ==> No deployment resources were found for autodeployment
+[INFO ] [2023-09-09 20:39:55] T:[] S:[] U:[] [main] ==> No deployment resources were found for autodeployment
+[INFO ] [2023-09-09 20:39:56] T:[] S:[] U:[] [main] ==> Found 2 Engine Configurators in total:
+[INFO ] [2023-09-09 20:39:56] T:[] S:[] U:[] [main] ==> class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+[INFO ] [2023-09-09 20:39:56] T:[] S:[] U:[] [main] ==> class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+[INFO ] [2023-09-09 20:39:56] T:[] S:[] U:[] [main] ==> Executing beforeInit() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+[INFO ] [2023-09-09 20:39:56] T:[] S:[] U:[] [main] ==> Executing beforeInit() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+[INFO ] [2023-09-09 20:39:57] T:[] S:[] U:[] [main] ==> Executing configure() of class org.flowable.eventregistry.spring.configurator.SpringEventRegistryConfigurator (priority:100000)
+[INFO ] [2023-09-09 20:39:58] T:[] S:[] U:[] [main] ==> Reading from orange.FLW_EV_DATABASECHANGELOG
+[INFO ] [2023-09-09 20:39:58] T:[] S:[] U:[] [main] ==> EventRegistryEngine default created
+[INFO ] [2023-09-09 20:39:58] T:[] S:[] U:[] [main] ==> Executing configure() of class org.flowable.idm.engine.configurator.IdmEngineConfigurator (priority:150000)
+[INFO ] [2023-09-09 20:39:59] T:[] S:[] U:[] [main] ==> IdmEngine default created
+[INFO ] [2023-09-09 20:39:59] T:[] S:[] U:[] [main] ==> ProcessEngine default created
+[INFO ] [2023-09-09 20:39:59] T:[] S:[] U:[] [main] ==> Total of v5 deployments found: 0
+[INFO ] [2023-09-09 20:40:00] T:[] S:[] U:[] [main] ==> 自定义配置项：
+AjCaptchaProperties{type=DEFAULT, jigsaw='classpath:images/jigsaw', picClick='classpath:images/pic-click', waterMark='我的水印', waterFont='WenQuanZhengHei.ttf', fontType='WenQuanZhengHei.ttf', slipOffset='5', aesStatus=true, interferenceOptions='2', cacheNumber='1000', timingClear='180', cacheType=redis, reqFrequencyLimitEnable=false, reqGetLockLimit=5, reqGetLockSeconds=360, reqGetMinuteLimit=30, reqCheckMinuteLimit=30, reqVerifyMinuteLimit=60}
+[INFO ] [2023-09-09 20:40:00] T:[] S:[] U:[] [main] ==> 自定义resource底图:[SLIDING_BLOCK=[Ljava.lang.String;@5dac488d, ORIGINAL=[Ljava.lang.String;@65ec90d5, PIC_CLICK=[Ljava.lang.String;@60a0094a]
+[INFO ] [2023-09-09 20:40:00] T:[] S:[] U:[] [main] ==> supported-captchaCache-service:[redis, local]
+[INFO ] [2023-09-09 20:40:00] T:[] S:[] U:[] [main] ==> supported-captchaTypes-service:[clickWord, default, blockPuzzle]
+[INFO ] [2023-09-09 20:40:00] T:[] S:[] U:[] [main] ==> --->>>初始化验证码底图<<<---clickWord
+[INFO ] [2023-09-09 20:40:00] T:[] S:[] U:[] [main] ==> --->>>初始化验证码底图<<<---blockPuzzle
+[INFO ] [2023-09-09 20:40:02] T:[] S:[] U:[] [main] ==> Exposing 14 endpoint(s) beneath base path '/actuator'
+[WARN ] [2023-09-09 20:40:03] T:[] S:[] U:[] [main] ==> Cannot find template location(s): [classpath:/template/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.check-template-location=false)
+[INFO ] [2023-09-09 20:40:03] T:[] S:[] U:[] [main] ==> Starting ProtocolHandler ["http-nio-8082"]
+[INFO ] [2023-09-09 20:40:03] T:[] S:[] U:[] [main] ==> Tomcat started on port(s): 8082 (http) with context path ''
+[INFO ] [2023-09-09 20:40:03] T:[] S:[] U:[] [main] ==> Started WebAdminApplication in 30.934 seconds (JVM running for 32.377)
+[INFO ] [2023-09-09 20:40:44] T:[] S:[] U:[] [http-nio-8082-exec-1] ==> Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [2023-09-09 20:40:44] T:[] S:[] U:[] [http-nio-8082-exec-1] ==> Initializing Servlet 'dispatcherServlet'
+[INFO ] [2023-09-09 20:40:44] T:[] S:[] U:[] [http-nio-8082-exec-1] ==> Completed initialization in 1 ms
+[INFO ] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> 开始请求，url=/admin/flow/flowMessage/getMessageCount, reqData={}
+[DEBUG] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> ==>  Preparing: SELECT COUNT(1) FROM zz_flow_message a WHERE a.tenant_id IS NULL AND a.app_code IS NULL AND a.task_finished = false AND a.message_type = 0 AND (a.task_assignee = ? OR EXISTS (SELECT * FROM zz_flow_msg_candidate_identity b WHERE a.message_id = b.message_id AND b.candidate_id IN ( ? , ? )))
+[DEBUG] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> ==> Parameters: admin(String), admin(String), 1689454707245846530(String)
+[DEBUG] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> <==      Total: 1
+[DEBUG] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> ==>  Preparing: SELECT COUNT(1) FROM zz_flow_message a WHERE a.tenant_id IS NULL AND a.app_code IS NULL AND a.message_type = 1 AND EXISTS (SELECT * FROM zz_flow_msg_candidate_identity b WHERE a.message_id = b.message_id AND b.candidate_id IN ( ? , ? )) AND NOT EXISTS (SELECT * FROM zz_flow_msg_identity_operation c WHERE a.message_id = c.message_id AND c.login_name = ?)
+[DEBUG] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> ==> Parameters: admin(String), 1689454707245846530(String), admin(String)
+[DEBUG] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> <==      Total: 1
+[INFO ] [2023-09-09 20:40:45] T:[95872e1a59274bb3a99de78b50d2b57c] S:[admin_4_b586da31ac464a90842f61f56794112c] U:[1689454707237457920] [http-nio-8082-exec-2] ==> 请求完成, url=/admin/flow/flowMessage/getMessageCount，elapse=91ms, respData={"data":{"copyMessageCount":1,"remindingMessageCount":1},"errorCode":"NO-ERROR","errorMessage":"NO-MESSAGE","success":true}
