@@ -5,19 +5,19 @@ spring:
             # 数据库链接 [主数据源]
       main:
 #        flow_bupt
-        url: jdbc:mysql://10.109.252.70:3306/orange?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://localhost:3306/flow_bupt?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
         username: root
-        password: 123456
+        password: 10222375
       # 默认生成的操作日志数据源配置。
       operation-log:
-        url: jdbc:mysql://10.109.252.70:3306/orange?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://localhost:3306/flow_bupt?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
         username: root
-        password: 123456
+        password: 10222375
       # 默认生成的工作流及在线表单数据源配置。
       common-flow-online:
-        url: jdbc:mysql://10.109.252.70:3306/orange?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://localhost:3306/flow_bupt?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
         username: root
-        password: 123456
+        password: 10222375
       driverClassName: com.mysql.cj.jdbc.Driver
       name: application-webadmin
       initialSize: 10
@@ -121,7 +121,7 @@ redis:
     # master-slave:
     #   每个节点逗号分隔，第一个为主节点，其余为从节点。同时每个节点前必须以redis://开头。
     #   address: redis://localhost:6379,redis://localhost:6378,...
-    address: redis://10.109.252.70:6379
+    address: redis://localhost:6379
     # 链接超时，单位毫秒。
     timeout: 6000
     # 单位毫秒。分布式锁的超时检测时长。
@@ -137,7 +137,7 @@ redis:
 
 minio:
   enabled: true
-  endpoint: http://10.109.252.70:9000
+  endpoint: http://localhost:9000
 #  endpoint: http://127.0.0.1:9000
   accessKey: admin
   secretKey: admin123456
