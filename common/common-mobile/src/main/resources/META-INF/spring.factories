@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.bupt.common.mobile.config.MobileAutoConfig

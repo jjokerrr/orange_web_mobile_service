@@ -1,0 +1,28 @@
+package com.bupt.common.online.vo;
+
+import lombok.Data;
+
+/**
+ * 在线表单页面和数据源多对多关联VO对象。
+ *
+ * @author zzh
+ * @date 2023-08-10
+ */
+@Data
+public class OnlinePageDatasourceVo {
+
+    /**
+     * 主键Id。
+     */
+    private Long id;
+
+    /**
+     * 页面主键Id。
+     */
+    private Long pageId;
+
+    /**
+     * 数据源主键Id。
+     */
+    private Long datasourceId;
+}
