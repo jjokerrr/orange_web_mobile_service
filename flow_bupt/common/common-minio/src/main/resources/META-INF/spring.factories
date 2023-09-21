@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.bupt.common.minio.config.MinioAutoConfiguration
