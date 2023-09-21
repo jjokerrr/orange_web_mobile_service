@@ -1,0 +1,179 @@
+logging:
+  level:
+    # 这里设置的日志级别优先于logback-spring.xml文件Loggers中的日志级别。
+    com.bupt: info
+  config: classpath:logback-spring.xml
+
+server:
+  port: 8082
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      max: 100
+      min-spare: 10
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+# spring相关配置
+spring:
+  application:
+    name: application-webadmin
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  mvc:
+    converters:
+      preferred-json-mapper: fastjson
+  freemarker:
+    template-loader-path: classpath:/template/
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    request-context-attribute: request
+    suffix: .ftl
+  main:
+    allow-circular-references: true
+
+flowable:
+  async-executor-activate: false
+  database-schema-update: false
+
+mybatis-plus:
+  mapper-locations: classpath:com/bupt/webadmin/*/dao/mapper/*Mapper.xml,com/bupt/common/log/dao/mapper/*Mapper.xml,com/bupt/common/mobile/dao/mapper/*Mapper.xml,com/bupt/common/online/dao/mapper/*Mapper.xml,com/bupt/common/flow/dao/mapper/*Mapper.xml
+  type-aliases-package: com.bupt.webadmin.*.model,com.bupt.common.log.model,com.bupt.common.mobile.model,com.bupt.common.online.model,com.bupt.common.flow.model
+  global-config:
+    db-config:
+      logic-delete-value: -1
+      logic-not-delete-value: 1
+
+# 自动分页的配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: false
+  params: count=countSql
+
+common-core:
+  # 可选值为 mysql / postgresql / oracle / dm8 / kingbase
+  databaseType: mysql
+
+common-mobile:
+  # 注意不要以反斜杠(/)结尾。
+  urlPrefix: /admin/mobile
+  # 在线表单业务数据上传资源路径
+  uploadFileBaseDir: ./zz-resource/upload-files/mobile
+
+common-online:
+  # 注意不要以反斜杠(/)结尾。
+  urlPrefix: /admin/online
+  # 打印接口的路径，不要以反斜杠(/)结尾。
+  printUrlPath: /admin/report/reportPrint/print
+  # 在线表单业务数据上传资源路径
+  uploadFileBaseDir: ./zz-resource/upload-files/online
+  # 如果为false，在线表单模块中所有Controller接口将不能使用。
+  operationEnabled: true
+  # 1: minio 2: aliyun-oss 3: qcloud-cos。
+  distributeStoreType: 1
+  # 调用render接口时候，是否打开一级缓存加速。
+  enableRenderCache: false
+  # 脱敏字段的掩码字符，只能为单个字符。
+  maskChar: '*'
+  # 下面的url列表，请保持反斜杠(/)结尾。
+  viewUrlList:
+  - ${common-online.urlPrefix}/onlineOperation/viewByDatasourceId/
+  - ${common-online.urlPrefix}/onlineOperation/viewByOneToManyRelationId/
+  - ${common-online.urlPrefix}/onlineOperation/listByDatasourceId/
+  - ${common-online.urlPrefix}/onlineOperation/listByOneToManyRelationId/
+  - ${common-online.urlPrefix}/onlineOperation/exportByDatasourceId/
+  - ${common-online.urlPrefix}/onlineOperation/exportByOneToManyRelationId/
+  - ${common-online.urlPrefix}/onlineOperation/downloadDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/downloadOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/print/
+  editUrlList:
+  - ${common-online.urlPrefix}/onlineOperation/addDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/addOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/updateDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/updateOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/deleteDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/deleteOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/deleteBatchDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/deleteBatchOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/uploadDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/uploadOneToManyRelation/
+
+common-flow:
+  # 请慎重修改urlPrefix的缺省配置，注意不要以反斜杠(/)结尾。如必须修改其他路径，请同步修改数据库脚本。
+  urlPrefix: /admin/flow
+  # 如果为false，流程模块的所有Controller中的接口将不能使用。
+  operationEnabled: true
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    jmx:
+      exposure:
+        include: '*'
+  endpoint:
+    # 与中间件相关的健康详情也会被展示
+    health:
+      show-details: always
+    configprops:
+      # 在/actuator/configprops中，所有包含password的配置，将用 * 隐藏。
+      # 如果不想隐藏任何配置项的值，可以直接使用如下被注释的空值。
+      # keys-to-sanitize:
+      keys-to-sanitize: password
+  server:
+    base-path: "/"
+
+common-log:
+  # 操作日志配置，对应配置文件common-log/OperationLogProperties.java
+  operation-log:
+    enabled: true
+
+aj:
+  captcha:
+    # 缓存local/redis..
+    cache-type: redis
+    # 验证码类型default两种都实例化。
+    type: default
+    # 右下角水印文字(我的水印)
+    water-mark: 我的水印
+    #点选字体样式 默认Font.BOLD
+    font-style: 1
+    #点选字体字体大小
+    font-size: 25
+    # 支持项目路径,以classpath:开头,取resource目录下路径,例：classpath:images/jigsaw
+    jigsaw: classpath:images/jigsaw
+    # 支持项目路径,以classpath:开头,取resource目录下路径,例：classpath:images/pic-click
+    pic-click: classpath:images/pic-click
+    history-data-clear-enable: false
+    # 接口请求次数一分钟限制是否开启 true|false
+    req-frequency-limit-enable: false
+    # 验证失败5次，get接口锁定
+    req-get-lock-limit: 5
+    # 验证失败后，锁定时间间隔,s
+    req-get-lock-seconds: 360
+    # get接口一分钟内请求数限制
+    req-get-minute-limit: 30
+    # check接口一分钟内请求数限制
+    req-check-minute-limit: 30
+    # verify接口一分钟内请求数限制
+    req-verify-minute-limit: 60
+    # 校验滑动拼图允许误差偏移量(默认5像素)
+    slip-offset: 5
+    # aes加密坐标开启或者禁用(true|false)
+    aes-status: true
+    # 滑动干扰项(0/1/2)
+    interference-options: 2
