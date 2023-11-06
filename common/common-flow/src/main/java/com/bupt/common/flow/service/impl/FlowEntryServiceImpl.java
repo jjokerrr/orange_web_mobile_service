@@ -119,7 +119,6 @@ public class FlowEntryServiceImpl extends BaseService<FlowEntry, Long> implement
         return flowEntry;
     }
 
-
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void publish(FlowEntry flowEntry, String initTaskInfo) throws XMLStreamException {

@@ -85,6 +85,7 @@ public class FlowOperationController {
 
     private static final String ACTIVE_MULTI_INST_TASK = "activeMultiInstanceTask";
     private static final String SHOW_NAME = "showName";
+    private static final String INSTANCE_ID = "processInstanceId";
 
     /**
      * 根据指定流程的主版本，发起一个流程实例。
@@ -787,17 +788,30 @@ public class FlowOperationController {
             List<HistoricProcessInstance> instanceList = flowApiService.getHistoricProcessInstanceList(instanceIdSet);
             Set<String> loginNameSet = instanceList.stream()
                     .map(HistoricProcessInstance::getStartUserId).collect(Collectors.toSet());
-            Map<String, String> userInfoMap = flowCustomExtFactory
-                    .getFlowIdentityExtHelper().mapUserShowNameByLoginName(loginNameSet);
+            List<FlowUserInfoVo> userInfoList = flowCustomExtFactory
+                    .getFlowIdentityExtHelper().getUserInfoListByUsernameSet(loginNameSet);
+            Map<String, FlowUserInfoVo> userInfoMap =
+                    userInfoList.stream().collect(Collectors.toMap(FlowUserInfoVo::getLoginName, c -> c));
             Map<String, HistoricProcessInstance> instanceMap =
                     instanceList.stream().collect(Collectors.toMap(HistoricProcessInstance::getId, c -> c));
+            List<FlowWorkOrder> workOrderList =
+                    flowWorkOrderService.getInList(INSTANCE_ID, instanceIdSet);
+            Map<String, FlowWorkOrder> workOrderMap =
+                    workOrderList.stream().collect(Collectors.toMap(FlowWorkOrder::getProcessInstanceId, c -> c));
             resultList.forEach(result -> {
-                HistoricProcessInstance instance = instanceMap.get(result.get("processInstanceId").toString());
+                String instanceId = result.get(INSTANCE_ID).toString();
+                HistoricProcessInstance instance = instanceMap.get(instanceId);
                 result.put("processDefinitionKey", instance.getProcessDefinitionKey());
                 result.put("processDefinitionName", instance.getProcessDefinitionName());
                 result.put("startUser", instance.getStartUserId());
-                result.put(SHOW_NAME, userInfoMap.get(instance.getStartUserId()));
+                FlowUserInfoVo userInfo = userInfoMap.get(instance.getStartUserId());
+                result.put(SHOW_NAME, userInfo.getShowName());
+                result.put("headImageUrl", userInfo.getHeadImageUrl());
                 result.put("businessKey", instance.getBusinessKey());
+                FlowWorkOrder flowWorkOrder = workOrderMap.get(instanceId);
+                if (flowWorkOrder != null) {
+                    result.put("workOrderCode", flowWorkOrder.getWorkOrderCode());
+                }
             });
             Set<String> taskIdSet =
                     taskInstanceList.stream().map(HistoricTaskInstance::getId).collect(Collectors.toSet());
@@ -824,6 +838,7 @@ public class FlowOperationController {
      * @param pageParam             分页对象。
      * @return 查询结果应答。
      */
+    @DisableDataFilter
     @PostMapping("/listHistoricProcessInstance")
     public ResponseResult<MyPageData<Map<String, Object>>> listHistoricProcessInstance(
             @MyRequestBody String processDefinitionName,
@@ -835,12 +850,32 @@ public class FlowOperationController {
                 null, processDefinitionName, loginName, beginDate, endDate, pageParam, true);
         Set<String> loginNameSet = pageData.getDataList().stream()
                 .map(HistoricProcessInstance::getStartUserId).collect(Collectors.toSet());
-        Map<String, String> userInfoMap = flowCustomExtFactory
-                .getFlowIdentityExtHelper().mapUserShowNameByLoginName(loginNameSet);
+        List<FlowUserInfoVo> userInfoList = flowCustomExtFactory
+                .getFlowIdentityExtHelper().getUserInfoListByUsernameSet(loginNameSet);
+        if (CollUtil.isEmpty(userInfoList)) {
+            userInfoList = new LinkedList<>();
+        }
+        Map<String, FlowUserInfoVo> userInfoMap =
+                userInfoList.stream().collect(Collectors.toMap(FlowUserInfoVo::getLoginName, c -> c));
+        Set<String> instanceIdSet = pageData.getDataList().stream()
+                .map(HistoricProcessInstance::getId).collect(Collectors.toSet());
+         List<FlowWorkOrder> workOrderList =
+                flowWorkOrderService.getInList(INSTANCE_ID, instanceIdSet);
+        Map<String, FlowWorkOrder> workOrderMap =
+                workOrderList.stream().collect(Collectors.toMap(FlowWorkOrder::getProcessInstanceId, c -> c));
         List<Map<String, Object>> resultList = new LinkedList<>();
         pageData.getDataList().forEach(instance -> {
             Map<String, Object> data = BeanUtil.beanToMap(instance);
-            data.put(SHOW_NAME, userInfoMap.get(instance.getStartUserId()));
+            FlowUserInfoVo userInfo = userInfoMap.get(instance.getStartUserId());
+            if (userInfo != null) {
+                data.put(SHOW_NAME, userInfo.getShowName());
+                data.put("headImageUrl", userInfo.getHeadImageUrl());
+            }
+            FlowWorkOrder workOrder = workOrderMap.get(instance.getId());
+            if (workOrder != null) {
+                data.put("workOrderCode", workOrder.getWorkOrderCode());
+                data.put("flowStatus", workOrder.getFlowStatus());
+            }
             resultList.add(data);
         });
         return ResponseResult.success(MyPageUtil.makeResponseData(resultList, pageData.getTotalCount()));

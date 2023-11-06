@@ -34,6 +34,11 @@ public class FlowTaskVo {
     private String taskFormKey;
 
     /**
+     * 待办任务开始时间。
+     */
+    private Date taskStartTime;
+
+    /**
      * 流程Id。
      */
     private Long entryId;
@@ -74,6 +79,11 @@ public class FlowTaskVo {
     private String showName;
 
     /**
+     * 用户头像信息。
+     */
+    private String headImageUrl;
+
+    /**
      * 流程实例创建时间。
      */
     private Date processInstanceStartTime;
@@ -82,6 +92,11 @@ public class FlowTaskVo {
      * 流程实例主表业务数据主键。
      */
     private String businessKey;
+
+    /**
+     * 工单编码。
+     */
+    private String workOrderCode;
 
     /**
      * 是否为草稿状态。

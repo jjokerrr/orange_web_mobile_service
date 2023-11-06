@@ -16,7 +16,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan("com.bupt")
 public class WebAdminApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(WebAdminApplication.class, args);
 		System.out.println("(♥◠‿◠)ﾉﾞ  orange-demo-flowable-service启动成功   ლ(´ڡ`ლ)ﾞ");

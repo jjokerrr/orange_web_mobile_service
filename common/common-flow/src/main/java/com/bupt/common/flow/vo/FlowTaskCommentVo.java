@@ -69,6 +69,11 @@ public class FlowTaskCommentVo {
     private String customBusinessData;
 
     /**
+     * 审批人头像。
+     */
+    private String headImageUrl;
+
+    /**
      * 创建者Id。
      */
     private Long createUserId;

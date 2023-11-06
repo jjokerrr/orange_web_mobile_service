@@ -126,11 +126,11 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     }
 
     private String getAppCodeFromRequest(HttpServletRequest request) {
-        String token = request.getHeader("AppCode");
-        if (StrUtil.isBlank(token)) {
-            token = request.getParameter("AppCode");
+        String appCode = request.getHeader("AppCode");
+        if (StrUtil.isBlank(appCode)) {
+            appCode = request.getParameter("AppCode");
         }
-        return token;
+        return appCode;
     }
 
     @SuppressWarnings("unchecked")

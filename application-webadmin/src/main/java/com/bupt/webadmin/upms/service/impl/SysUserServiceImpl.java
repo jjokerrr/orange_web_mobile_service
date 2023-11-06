@@ -78,7 +78,7 @@ public class SysUserServiceImpl extends BaseService<SysUser, Long> implements Sy
     public MyPageData<Map<String, Object>> getDataList(
             String type, Map<String, Object> filter, MyOrderParam orderParam, MyPageParam pageParam) {
         if (pageParam != null) {
-            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize());
+            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize(), pageParam.getCount());
         }
         List<SysUser> userList = null;
         String orderBy = MyOrderParam.buildOrderBy(orderParam, SysUser.class, false);

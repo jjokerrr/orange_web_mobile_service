@@ -69,6 +69,13 @@ INSERT INTO `bupt_sys_menu` VALUES(1689458209066061933,1689454707262623752,'显�
 INSERT INTO `bupt_sys_menu` VALUES(1689458209066061934,1689454707262623752,'强制下线',3,NULL,NULL,NULL,NULL,NULL,2,NULL,NULL,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 
 -- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+INSERT INTO `bupt_sys_menu` VALUES (1687821642446671872,NULL,'移动端管理',0,NULL,NULL,NULL,NULL,NULL,10,NULL,NULL,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_menu` VALUES (1688105082400280576,1687821642446671872,'轮播图配置',1,'formBanner',NULL,NULL,NULL,NULL,1,NULL,NULL,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_menu` VALUES (1687821728979357696,1687821642446671872,'九宫格配置',1,'formSudoku',NULL,NULL,NULL,NULL,2,NULL,NULL,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+
+-- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
 -- ----------------------------
 INSERT INTO `bupt_sys_menu` VALUES (1634009076981567488,1392786476428693504,'数据库链接',1,'formOnlineDblink',NULL,NULL,NULL,NULL,1,NULL,NULL,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
@@ -128,6 +135,7 @@ INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061909,1689458209066061908,
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061937,1689458209066061936,'formSysLoginUser:fragmentLoginUser:delete',2,'强制下线',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061930,NULL,'formSysOperationLog',0,'操作日志',11100,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061838,1689458209066061837,'formSysUser:fragmentSysUser',1,'用户管理',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm_code` VALUES(1690569243176734720,NULL,'demo',0,'demo',0,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061897,1689458209066061893,'formSysPermCode:fragmentSysPermCode:listSysPermCodePermDetail',2,'权限详情',4,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061884,1689458209066061881,'formSysMenu:fragmentSysMenu:delete',2,'删除',3,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061873,1689458209066061867,'formSysRole:fragmentSysRoleUser:deleteUserRole',2,'移除用户',2,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
@@ -153,7 +161,15 @@ INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061882,1689458209066061881,
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061896,1689458209066061893,'formSysPermCode:fragmentSysPermCode:delete',2,'删除',3,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061931,1689458209066061930,'formSysOperationLog:fragmentSysOperationLog',1,'操作日志',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061850,1689458209066061849,'formSysDept:fragmentSysDept',1,'部门管理',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm_code` VALUES(1690569243185123328,1690569243176734720,'demo:demo',1,'demo',0,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_code` VALUES(1689458209066061936,1689458209066061935,'formSysLoginUser:fragmentLoginUser',1,'在线用户',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+INSERT INTO `bupt_sys_perm_code` VALUES (1696168267019718656,NULL,'formMoileEntry',0,'移动端管理',13600,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm_code` VALUES (1696168620435968000,1696168267019718656,'formMobileEntry:fragmentSudoku',1,'九宫格管理',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm_code` VALUES (1696168739763916800,1696168267019718656,'formMobileEntry:formBanner',1,'轮播图管理',2,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -245,6 +261,12 @@ INSERT INTO `bupt_sys_menu_perm_code` VALUES(1689458209066061933,168945820906606
 INSERT INTO `bupt_sys_menu_perm_code` VALUES(1689458209066061934,1689458209066061937);
 
 -- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+INSERT INTO `bupt_sys_menu_perm_code` VALUES (1687821728979357696,1696168620435968000);
+INSERT INTO `bupt_sys_menu_perm_code` VALUES (1688105082400280576,1696168739763916800);
+
+-- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
 -- ----------------------------
 INSERT INTO `bupt_sys_menu_perm_code` VALUES (1392786549942259712,1400638885750378496);
@@ -287,8 +309,15 @@ INSERT INTO `bupt_sys_perm_module` VALUES(1689458209061867569,168945470724584653
 INSERT INTO `bupt_sys_perm_module` VALUES(1689458209061867577,1689454707245846530,'权限模块管理',1,25,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_module` VALUES(1689458209061867583,1689454707245846530,'权限资源管理',1,30,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_module` VALUES(1689458209061867593,1689458209061867592,'编码字典',1,0,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm_module` VALUES(1694976956031832064,1689458209061867592,'地址',1,2,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_module` VALUES(1689458209066061824,1689454707271012352,'操作日志',1,5,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm_module` VALUES(1689458209066061826,1689454707271012352,'在线用户',1,10,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+INSERT INTO `bupt_sys_perm_module` VALUES (1696167234029752320,0,'移动端管理',0,11,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm_module` VALUES (1696167285498056704,1696167234029752320,'移动端管理',1,1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -394,9 +423,24 @@ INSERT INTO `bupt_sys_perm` VALUES(1689458209061867599,1689458209061867593,'编�
 INSERT INTO `bupt_sys_perm` VALUES(1689458209061867600,1689458209061867593,'编辑编码字典数据状态','/admin/upms/globalDict/updateItemStatus',7,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm` VALUES(1689458209061867601,1689458209061867593,'删除编码字典数据','/admin/upms/globalDict/deleteItem',8,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm` VALUES(1689458209061867602,1689458209061867593,'编码字典数据同步缓存','/admin/upms/globalDict/reloadCachedData',9,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES(1694978394602606644,1694976956031832064,'新增','/admin/app/areaCode/add',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES(1694978394602606645,1694976956031832064,'编辑','/admin/app/areaCode/update',2,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES(1694978394602606646,1694976956031832064,'删除','/admin/app/areaCode/delete',3,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES(1694978394602606647,1694976956031832064,'同步缓存','/admin/app/areaCode/reloadCachedData',4,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm` VALUES(1689458209066061825,1689458209066061824,'显示列表','/admin/upms/sysOperationLog/list',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm` VALUES(1689458209066061827,1689458209066061826,'显示列表','/admin/upms/loginUser/list',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 INSERT INTO `bupt_sys_perm` VALUES(1689458209066061828,1689458209066061826,'删除','/admin/upms/loginUser/delete',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+INSERT INTO `bupt_sys_perm` VALUES (1696167456139120640,1696167285498056704,'显示列表','/admin/mobile/mobileEntry/list',1,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES (1696167558614355968,1696167285498056704,'详情','/admin/mobile/mobileEntry/view',2,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES (1696167638708785152,1696167285498056704,'新建','/admin/mobile/mobileEntry/add',3,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES (1696167688499367936,1696167285498056704,'更新','/admin/mobile/mobileEntry/update',4,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES (1696167785131937792,1696167285498056704,'删除','/admin/mobile/mobileEntry/delete',5,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES (1696167901570011136,1696167285498056704,'上传图片','/admin/mobile/mobileEntry/uploadImage',6,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
+INSERT INTO `bupt_sys_perm` VALUES (1696167964069335040,1696167285498056704,'下载图片','/admin/mobile/mobileEntry/downloadImage',7,1689454707237457920,CURDATE(),1689454707237457920,CURDATE());
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -595,9 +639,31 @@ INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,168945820906186
 INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,1689458209061867600);
 INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,1689458209061867601);
 INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,1689458209061867602);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,1694978394602606644);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,1694978394602606645);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,1694978394602606646);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061923,1694978394602606647);
 INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061931,1689458209066061825);
 INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061936,1689458209066061827);
 INSERT INTO `bupt_sys_perm_code_perm` VALUES(1689458209066061937,1689458209066061828);
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168620435968000,1696167456139120640);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168739763916800,1696167456139120640);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168620435968000,1696167558614355968);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168739763916800,1696167558614355968);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168620435968000,1696167638708785152);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168739763916800,1696167638708785152);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168620435968000,1696167688499367936);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168739763916800,1696167688499367936);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168620435968000,1696167785131937792);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168739763916800,1696167785131937792);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168620435968000,1696167901570011136);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168739763916800,1696167901570011136);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168620435968000,1696167964069335040);
+INSERT INTO `bupt_sys_perm_code_perm` VALUES (1696168739763916800,1696167964069335040);
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -767,10 +833,15 @@ INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/globalDict/listDictBy
 INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/globalDict/listAll','字典管理','全局编码字典列表');
 INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/sysDept/listDict','部门管理','部门字典字典列表');
 INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/sysDept/listDictByIds','部门管理','部门字典字典批量Id列表');
+INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/app/areaCode/listDict','行政区划','行政区划列表');
+INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/app/areaCode/listAll','地址','字典全部列表');
+INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/app/areaCode/listDictByIds','行政区划','行政区划批量Id列表');
+INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/app/areaCode/listDictByParentId','行政区划','行政区划过滤列表');
 INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/login/doLogout','登录模块','退出登陆');
 INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/login/changePassword','系统管理','修改密码');
 INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/login/changeHeadImage','系统管理','修改头像');
 INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/upms/login/downloadHeadImage','系统管理','下载头像');
+INSERT INTO `bupt_sys_perm_whitelist` VALUES ('/admin/mobile/mobileEntry/downloadImage','移动端模块','下图移动端首页图片');
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。

@@ -56,7 +56,7 @@ public class FlowMessageController {
     @PostMapping("/listRemindingTask")
     public ResponseResult<MyPageData<FlowMessageVo>> listRemindingTask(@MyRequestBody MyPageParam pageParam) {
         if (pageParam != null) {
-            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize());
+            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize(), pageParam.getCount());
         }
         List<FlowMessage> flowMessageList = flowMessageService.getRemindingMessageListByUser();
         return ResponseResult.success(MyPageUtil.makeResponseData(flowMessageList, FlowMessage.INSTANCE));
@@ -74,7 +74,7 @@ public class FlowMessageController {
     public ResponseResult<MyPageData<FlowMessageVo>> listCopyMessage(
             @MyRequestBody MyPageParam pageParam, @MyRequestBody Boolean read) {
         if (pageParam != null) {
-            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize());
+            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize(), pageParam.getCount());
         }
         List<FlowMessage> flowMessageList = flowMessageService.getCopyMessageListByUser(read);
         return ResponseResult.success(MyPageUtil.makeResponseData(flowMessageList, FlowMessage.INSTANCE));

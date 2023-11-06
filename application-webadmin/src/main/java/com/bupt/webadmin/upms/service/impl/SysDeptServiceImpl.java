@@ -66,7 +66,7 @@ public class SysDeptServiceImpl extends BaseService<SysDept, Long> implements Sy
     public MyPageData<Map<String, Object>> getDataList(
             String type, Map<String, Object> filter, MyOrderParam orderParam, MyPageParam pageParam) {
         if (pageParam != null) {
-            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize());
+            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize(), pageParam.getCount());
         }
         String orderBy = orderParam == null ? null : MyOrderParam.buildOrderBy(orderParam, SysDept.class);
         SysDept deptFilter = filter == null ? null : BeanUtil.toBean(filter, SysDept.class);

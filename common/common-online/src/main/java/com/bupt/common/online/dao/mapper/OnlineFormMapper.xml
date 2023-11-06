@@ -53,6 +53,9 @@
             <if test="onlineFormFilter.formType != null">
                 AND zz_online_form.form_type = #{onlineFormFilter.formType}
             </if>
+            <if test="onlineFormFilter.masterTableId != null">
+                AND zz_online_form.master_table_id = #{onlineFormFilter.masterTableId}
+            </if>
         </if>
     </sql>
 

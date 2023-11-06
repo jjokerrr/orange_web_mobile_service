@@ -71,6 +71,13 @@ DELETE FROM `bupt_sys_menu` WHERE menu_id = 1689458209066061933;
 DELETE FROM `bupt_sys_menu` WHERE menu_id = 1689458209066061934;
 
 -- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+DELETE FROM `bupt_sys_menu` WHERE menu_id = 1687821642446671872;
+DELETE FROM `bupt_sys_menu` WHERE menu_id = 1688105082400280576;
+DELETE FROM `bupt_sys_menu` WHERE menu_id = 1687821728979357696;
+
+-- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
 -- ----------------------------
 DELETE FROM `bupt_sys_menu` WHERE menu_id = 1634009076981567488;
@@ -130,6 +137,7 @@ DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061909;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061937;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061930;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061838;
+DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1690569243176734720;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061897;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061884;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061873;
@@ -155,7 +163,15 @@ DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061882;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061896;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061931;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061850;
+DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1690569243185123328;
 DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1689458209066061936;
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1696168267019718656;
+DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1696168620435968000;
+DELETE FROM `bupt_sys_perm_code` WHERE perm_code_id = 1696168739763916800;
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -247,6 +263,12 @@ DELETE FROM `bupt_sys_menu_perm_code` WHERE menu_id = 1689458209066061933 AND pe
 DELETE FROM `bupt_sys_menu_perm_code` WHERE menu_id = 1689458209066061934 AND perm_code_id = 1689458209066061937;
 
 -- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+DELETE FROM `bupt_sys_menu_perm_code` WHERE menu_id = 1687821728979357696 AND perm_code_id = 1696168620435968000;
+DELETE FROM `bupt_sys_menu_perm_code` WHERE menu_id = 1688105082400280576 AND perm_code_id = 1696168739763916800;
+
+-- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
 -- ----------------------------
 DELETE FROM `bupt_sys_menu_perm_code` WHERE menu_id = 1392786549942259712 AND perm_code_id = 1400638885750378496;
@@ -290,8 +312,15 @@ DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1689458209061867569;
 DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1689458209061867577;
 DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1689458209061867583;
 DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1689458209061867593;
+DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1694976956031832064;
 DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1689458209066061824;
 DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1689458209066061826;
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1696167234029752320;
+DELETE FROM `bupt_sys_perm_module` WHERE module_id = 1696167285498056704;
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -397,9 +426,24 @@ DELETE FROM `bupt_sys_perm` WHERE perm_id = 1689458209061867599;
 DELETE FROM `bupt_sys_perm` WHERE perm_id = 1689458209061867600;
 DELETE FROM `bupt_sys_perm` WHERE perm_id = 1689458209061867601;
 DELETE FROM `bupt_sys_perm` WHERE perm_id = 1689458209061867602;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1694978394602606644;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1694978394602606645;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1694978394602606646;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1694978394602606647;
 DELETE FROM `bupt_sys_perm` WHERE perm_id = 1689458209066061825;
 DELETE FROM `bupt_sys_perm` WHERE perm_id = 1689458209066061827;
 DELETE FROM `bupt_sys_perm` WHERE perm_id = 1689458209066061828;
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1696167456139120640;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1696167558614355968;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1696167638708785152;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1696167688499367936;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1696167785131937792;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1696167901570011136;
+DELETE FROM `bupt_sys_perm` WHERE perm_id = 1696167964069335040;
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -598,9 +642,31 @@ DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 A
 DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 AND perm_id = 1689458209061867600;
 DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 AND perm_id = 1689458209061867601;
 DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 AND perm_id = 1689458209061867602;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 AND perm_id = 1694978394602606644;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 AND perm_id = 1694978394602606645;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 AND perm_id = 1694978394602606646;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061923 AND perm_id = 1694978394602606647;
 DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061931 AND perm_id = 1689458209066061825;
 DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061936 AND perm_id = 1689458209066061827;
 DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1689458209066061937 AND perm_id = 1689458209066061828;
+
+-- ----------------------------
+-- 以下记录用于移动端，这里的注释，是为了便于老用户进行手动数据补偿。
+-- ----------------------------
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168620435968000 AND perm_id = 1696167456139120640;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168739763916800 AND perm_id = 1696167456139120640;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168620435968000 AND perm_id = 1696167558614355968;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168739763916800 AND perm_id = 1696167558614355968;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168620435968000 AND perm_id = 1696167638708785152;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168739763916800 AND perm_id = 1696167638708785152;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168620435968000 AND perm_id = 1696167688499367936;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168739763916800 AND perm_id = 1696167688499367936;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168620435968000 AND perm_id = 1696167785131937792;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168739763916800 AND perm_id = 1696167785131937792;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168620435968000 AND perm_id = 1696167901570011136;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168739763916800 AND perm_id = 1696167901570011136;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168620435968000 AND perm_id = 1696167964069335040;
+DELETE FROM `bupt_sys_perm_code_perm` WHERE perm_code_id = 1696168739763916800 AND perm_id = 1696167964069335040;
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。
@@ -765,10 +831,15 @@ DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/globalDict/l
 DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/globalDict/listAll';
 DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/sysDept/listDict';
 DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/sysDept/listDictByIds';
+DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/app/areaCode/listDict';
+DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/app/areaCode/listAll';
+DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/app/areaCode/listDictByIds';
+DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/app/areaCode/listDictByParentId';
 DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/login/doLogout';
 DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/login/changePassword';
 DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/login/changeHeadImage';
 DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/upms/login/downloadHeadImage';
+DELETE FROM `bupt_sys_perm_whitelist` WHERE perm_url = '/admin/mobile/mobileEntry/downloadImage';
 
 -- ----------------------------
 -- 以下记录用于在线表单，这里的注释，是为了便于老用户进行手动数据补偿。

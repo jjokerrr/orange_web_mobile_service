@@ -14,6 +14,7 @@
         <result column="delegate_assignee" jdbcType="VARCHAR" property="delegateAssignee"/>
         <result column="custom_business_data" jdbcType="LONGVARCHAR" property="customBusinessData"/>
         <result column="task_comment" jdbcType="VARCHAR" property="taskComment"/>
+        <result column="head_image_url" jdbcType="VARCHAR" property="headImageUrl"/>
         <result column="create_user_id" jdbcType="BIGINT" property="createUserId"/>
         <result column="create_login_name" jdbcType="VARCHAR" property="createLoginName"/>
         <result column="create_username" jdbcType="VARCHAR" property="createUsername"/>

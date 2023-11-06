@@ -42,6 +42,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -670,6 +671,7 @@ public class OnlineOperationController {
                     ResponseResult.error(ErrorCodeEnum.DATA_VALIDATED_FAILED, "数据验证失败，没有指定导出头信息！"));
             return;
         }
+        this.normalizeExportDataList(pageData.getDataList());
         String filename = datasourceVariableName + "-" + MyDateUtil.toDateTimeString(DateTime.now()) + ".xlsx";
         ExportUtil.doExport(pageData.getDataList(), headerMap, filename);
     }
@@ -782,6 +784,7 @@ public class OnlineOperationController {
                     ResponseResult.error(ErrorCodeEnum.DATA_VALIDATED_FAILED, "数据验证失败，没有指定导出头信息！"));
             return;
         }
+        this.normalizeExportDataList(pageData.getDataList());
         String filename = datasourceVariableName + "-relation-" + MyDateUtil.toDateTimeString(DateTime.now()) + ".xlsx";
         ExportUtil.doExport(pageData.getDataList(), headerMap, filename);
     }
@@ -1101,6 +1104,16 @@ public class OnlineOperationController {
             }
         }
         return headerMap;
+    }
+
+    private void normalizeExportDataList(List<Map<String, Object>> dataList) {
+        for (Map<String, Object> columnData : dataList) {
+            for (Map.Entry<String, Object> entry : columnData.entrySet()) {
+                if (entry.getValue() instanceof Long || entry.getValue() instanceof BigDecimal) {
+                    columnData.put(entry.getKey(), entry.getValue() == null ? "" : entry.getValue().toString());
+                }
+            }
+        }
     }
 
     private String appendSuffixForDictColumn(OnlineColumn column, String columnName) {

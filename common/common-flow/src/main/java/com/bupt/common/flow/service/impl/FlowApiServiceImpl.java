@@ -29,6 +29,7 @@ import com.bupt.common.flow.service.*;
 import com.bupt.common.flow.util.BaseFlowIdentityExtHelper;
 import com.bupt.common.flow.util.FlowCustomExtFactory;
 import com.bupt.common.flow.vo.FlowTaskVo;
+import com.bupt.common.flow.vo.FlowUserInfoVo;
 import lombok.AllArgsConstructor;
 import lombok.Cleanup;
 import lombok.Data;
@@ -611,7 +612,7 @@ public class FlowApiServiceImpl implements FlowApiService {
     @Override
     public MyPageData<Task> getTaskListByUserName(
             String username, String definitionKey, String definitionName, String taskName, MyPageParam pageParam) {
-        TaskQuery query = taskService.createTaskQuery().active();
+        TaskQuery query = this.createQuery();
         if (StrUtil.isNotBlank(definitionKey)) {
             query.processDefinitionKey(definitionKey);
         }
@@ -620,16 +621,6 @@ public class FlowApiServiceImpl implements FlowApiService {
         }
         if (StrUtil.isNotBlank(taskName)) {
             query.taskNameLike("%" + taskName + "%");
-        }
-        TokenData tokenData = TokenData.takeFromRequest();
-        if (tokenData.getTenantId() != null) {
-            query.taskTenantId(tokenData.getTenantId().toString());
-        } else {
-            if (StrUtil.isBlank(tokenData.getAppCode())) {
-                query.taskWithoutTenantId();
-            } else {
-                query.taskTenantId(tokenData.getAppCode());
-            }
         }
         this.buildCandidateCondition(query, username);
         long totalCount = query.count();
@@ -641,7 +632,9 @@ public class FlowApiServiceImpl implements FlowApiService {
 
     @Override
     public long getTaskCountByUserName(String username) {
-        return taskService.createTaskQuery().taskCandidateOrAssigned(username).active().count();
+        TaskQuery query = this.createQuery();
+        this.buildCandidateCondition(query, username);
+        return query.count();
     }
 
     @Override
@@ -737,6 +730,7 @@ public class FlowApiServiceImpl implements FlowApiService {
             flowTaskVo.setTaskName(task.getName());
             flowTaskVo.setTaskKey(task.getTaskDefinitionKey());
             flowTaskVo.setTaskFormKey(task.getFormKey());
+            flowTaskVo.setTaskStartTime(task.getCreateTime());
             flowTaskVo.setEntryId(flowEntryPublishMap.get(task.getProcessDefinitionId()).getEntryId());
             ProcessDefinition processDefinition = definitionMap.get(task.getProcessDefinitionId());
             flowTaskVo.setProcessDefinitionId(processDefinition.getId());
@@ -753,15 +747,20 @@ public class FlowApiServiceImpl implements FlowApiService {
             FlowWorkOrder flowWorkOrder = workOrderMap.get(task.getProcessInstanceId());
             if (flowWorkOrder != null) {
                 flowTaskVo.setIsDraft(flowWorkOrder.getFlowStatus().equals(FlowTaskStatus.DRAFT));
+                flowTaskVo.setWorkOrderCode(flowWorkOrder.getWorkOrderCode());
             }
             flowTaskVoList.add(flowTaskVo);
         }
         Set<String> loginNameSet = flowTaskVoList.stream()
                 .map(FlowTaskVo::getProcessInstanceInitiator).collect(Collectors.toSet());
-        Map<String, String> userInfoMap = flowCustomExtFactory
-                .getFlowIdentityExtHelper().mapUserShowNameByLoginName(loginNameSet);
+        List<FlowUserInfoVo> flowUserInfos = flowCustomExtFactory
+                .getFlowIdentityExtHelper().getUserInfoListByUsernameSet(loginNameSet);
+        Map<String, FlowUserInfoVo> userInfoMap =
+                flowUserInfos.stream().collect(Collectors.toMap(FlowUserInfoVo::getLoginName, c -> c));
         for (FlowTaskVo flowTaskVo : flowTaskVoList) {
-            flowTaskVo.setShowName(userInfoMap.get(flowTaskVo.getProcessInstanceInitiator()));
+            FlowUserInfoVo userInfo = userInfoMap.get(flowTaskVo.getProcessInstanceInitiator());
+            flowTaskVo.setShowName(userInfo.getShowName());
+            flowTaskVo.setHeadImageUrl(userInfo.getHeadImageUrl());
         }
         return flowTaskVoList;
     }
@@ -2017,6 +2016,20 @@ public class FlowApiServiceImpl implements FlowApiService {
         }
     }
 
+    private TaskQuery createQuery() {
+        TaskQuery query = taskService.createTaskQuery().active();
+        TokenData tokenData = TokenData.takeFromRequest();
+        if (tokenData.getTenantId() != null) {
+            query.taskTenantId(tokenData.getTenantId().toString());
+        } else {
+            if (StrUtil.isBlank(tokenData.getAppCode())) {
+                query.taskWithoutTenantId();
+            } else {
+                query.taskTenantId(tokenData.getAppCode());
+            }
+        }
+        return query;
+    }
     private void buildCandidateCondition(TaskQuery query, String loginName) {
         Set<String> groupIdSet = new HashSet<>();
         // NOTE: 需要注意的是，部门Id、部门岗位Id，或者其他类型的分组Id，他们之间一定不能重复。

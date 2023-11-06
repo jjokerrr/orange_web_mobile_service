@@ -504,7 +504,7 @@ public class FlowOnlineOperationController {
             @MyRequestBody MyPageParam pageParam,
             @MyRequestBody String ignoreMaskFields) {
         if (pageParam != null) {
-            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize());
+            PageMethod.startPage(pageParam.getPageNum(), pageParam.getPageSize(), pageParam.getCount());
         }
         FlowWorkOrder flowWorkOrderFilter =
                 flowOperationHelper.makeWorkOrderFilter(flowWorkOrderDtoFilter, processDefinitionKey);

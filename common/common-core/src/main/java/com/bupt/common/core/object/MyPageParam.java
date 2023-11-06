@@ -26,6 +26,11 @@ public class MyPageParam {
     private Integer pageSize;
 
     /**
+     * 是否统计totalCount
+     */
+    private Boolean count = true;
+
+    /**
      * 设置当前分页页号。
      *
      * @param pageNum 页号，如果传入非法值，则使用缺省值。

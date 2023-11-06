@@ -7,17 +7,17 @@ spring:
 #        flow_bupt
         url: jdbc:mysql://localhost:3306/flow_bupt?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
         username: root
-        password: 10222375
+        password: 123456
       # 默认生成的操作日志数据源配置。
       operation-log:
         url: jdbc:mysql://localhost:3306/flow_bupt?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
         username: root
-        password: 10222375
+        password: 123456
       # 默认生成的工作流及在线表单数据源配置。
       common-flow-online:
         url: jdbc:mysql://localhost:3306/flow_bupt?characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai
         username: root
-        password: 10222375
+        password: 123456
       driverClassName: com.mysql.cj.jdbc.Driver
       name: application-webadmin
       initialSize: 10

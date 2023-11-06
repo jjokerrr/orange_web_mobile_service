@@ -32,6 +32,11 @@
         </dependency>
         <dependency>
             <groupId>com.bupt</groupId>
+            <artifactId>common-mobile</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.bupt</groupId>
             <artifactId>common-online</artifactId>
             <version>1.0.0</version>
         </dependency>

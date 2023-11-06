@@ -48,8 +48,8 @@ flowable:
   database-schema-update: false
 
 mybatis-plus:
-  mapper-locations: classpath:com/bupt/webadmin/*/dao/mapper/*Mapper.xml,com/bupt/common/log/dao/mapper/*Mapper.xml,com/bupt/common/online/dao/mapper/*Mapper.xml,com/bupt/common/flow/dao/mapper/*Mapper.xml
-  type-aliases-package: com.bupt.webadmin.*.model,com.bupt.common.log.model,com.bupt.common.online.model,com.bupt.common.flow.model
+  mapper-locations: classpath:com/bupt/webadmin/*/dao/mapper/*Mapper.xml,com/bupt/common/log/dao/mapper/*Mapper.xml,com/bupt/common/mobile/dao/mapper/*Mapper.xml,com/bupt/common/online/dao/mapper/*Mapper.xml,com/bupt/common/flow/dao/mapper/*Mapper.xml
+  type-aliases-package: com.bupt.webadmin.*.model,com.bupt.common.log.model,com.bupt.common.mobile.model,com.bupt.common.online.model,com.bupt.common.flow.model
   global-config:
     db-config:
       logic-delete-value: -1
@@ -65,6 +65,12 @@ pagehelper:
 common-core:
   # 可选值为 mysql / postgresql / oracle / dm8 / kingbase
   databaseType: mysql
+
+common-mobile:
+  # 注意不要以反斜杠(/)结尾。
+  urlPrefix: /admin/mobile
+  # 在线表单业务数据上传资源路径
+  uploadFileBaseDir: ./zz-resource/upload-files/mobile
 
 common-online:
   # 注意不要以反斜杠(/)结尾。
@@ -83,26 +89,26 @@ common-online:
   maskChar: '*'
   # 下面的url列表，请保持反斜杠(/)结尾。
   viewUrlList:
-    - ${common-online.urlPrefix}/onlineOperation/viewByDatasourceId/
-    - ${common-online.urlPrefix}/onlineOperation/viewByOneToManyRelationId/
-    - ${common-online.urlPrefix}/onlineOperation/listByDatasourceId/
-    - ${common-online.urlPrefix}/onlineOperation/listByOneToManyRelationId/
-    - ${common-online.urlPrefix}/onlineOperation/exportByDatasourceId/
-    - ${common-online.urlPrefix}/onlineOperation/exportByOneToManyRelationId/
-    - ${common-online.urlPrefix}/onlineOperation/downloadDatasource/
-    - ${common-online.urlPrefix}/onlineOperation/downloadOneToManyRelation/
-    - ${common-online.urlPrefix}/onlineOperation/print/
+  - ${common-online.urlPrefix}/onlineOperation/viewByDatasourceId/
+  - ${common-online.urlPrefix}/onlineOperation/viewByOneToManyRelationId/
+  - ${common-online.urlPrefix}/onlineOperation/listByDatasourceId/
+  - ${common-online.urlPrefix}/onlineOperation/listByOneToManyRelationId/
+  - ${common-online.urlPrefix}/onlineOperation/exportByDatasourceId/
+  - ${common-online.urlPrefix}/onlineOperation/exportByOneToManyRelationId/
+  - ${common-online.urlPrefix}/onlineOperation/downloadDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/downloadOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/print/
   editUrlList:
-    - ${common-online.urlPrefix}/onlineOperation/addDatasource/
-    - ${common-online.urlPrefix}/onlineOperation/addOneToManyRelation/
-    - ${common-online.urlPrefix}/onlineOperation/updateDatasource/
-    - ${common-online.urlPrefix}/onlineOperation/updateOneToManyRelation/
-    - ${common-online.urlPrefix}/onlineOperation/deleteDatasource/
-    - ${common-online.urlPrefix}/onlineOperation/deleteOneToManyRelation/
-    - ${common-online.urlPrefix}/onlineOperation/deleteBatchDatasource/
-    - ${common-online.urlPrefix}/onlineOperation/deleteBatchOneToManyRelation/
-    - ${common-online.urlPrefix}/onlineOperation/uploadDatasource/
-    - ${common-online.urlPrefix}/onlineOperation/uploadOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/addDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/addOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/updateDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/updateOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/deleteDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/deleteOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/deleteBatchDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/deleteBatchOneToManyRelation/
+  - ${common-online.urlPrefix}/onlineOperation/uploadDatasource/
+  - ${common-online.urlPrefix}/onlineOperation/uploadOneToManyRelation/
 
 common-flow:
   # 请慎重修改urlPrefix的缺省配置，注意不要以反斜杠(/)结尾。如必须修改其他路径，请同步修改数据库脚本。

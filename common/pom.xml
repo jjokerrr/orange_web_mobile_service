@@ -18,6 +18,7 @@
         <module>common-log</module>
         <module>common-dict</module>
         <module>common-datafilter</module>
+        <module>common-mobile</module>
         <module>common-online</module>
         <module>common-flow-online</module>
         <module>common-flow</module>

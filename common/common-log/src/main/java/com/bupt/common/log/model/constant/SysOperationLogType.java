@@ -20,9 +20,17 @@ public final class SysOperationLogType {
      */
     public static final int LOGIN = 0;
     /**
+     * 登录移动端。
+     */
+    public static final int LOGIN_MOBILE = 1;
+    /**
      * 登出。
      */
     public static final int LOGOUT = 5;
+    /**
+     * 登出移动端。
+     */
+    public static final int LOGOUT_MOBILE = 6;
     /**
      * 新增。
      */

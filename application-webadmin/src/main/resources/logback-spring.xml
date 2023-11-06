@@ -85,6 +85,10 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         <appender-ref ref="console" />
         <appender-ref ref="file_log" />
     </logger>
+    <logger name="com.bupt.common.mobile.dao" additivity="false" level="debug">
+        <appender-ref ref="console" />
+        <appender-ref ref="file_log" />
+    </logger>
     <logger name="com.bupt.common.online.dao" additivity="false" level="debug">
         <appender-ref ref="console" />
         <appender-ref ref="file_log" />

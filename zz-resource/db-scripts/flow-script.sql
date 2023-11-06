@@ -1345,6 +1345,7 @@ CREATE TABLE `zz_flow_task_comment` (
   `task_comment` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '批注内容',
   `delegate_assignee` varchar(512) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '委托指定人，比如加签、转办等',
   `custom_business_data` longtext COLLATE utf8mb4_bin COMMENT '自定义数据。开发者可自行扩展，推荐使用JSON格式数据',
+  `head_image_url` varchar(1024) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '审批用户头像',
   `create_user_id` bigint NOT NULL COMMENT '创建者Id',
   `create_login_name` varchar(255) COLLATE utf8mb4_bin NOT NULL COMMENT '创建者登录名',
   `create_username` varchar(255) COLLATE utf8mb4_bin NOT NULL COMMENT '创建者用户名',

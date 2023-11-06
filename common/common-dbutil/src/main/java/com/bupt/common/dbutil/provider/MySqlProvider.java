@@ -72,7 +72,7 @@ public class MySqlProvider implements DataSourceProvider {
     @Override
     public String convertColumnTypeToJavaType(String columnType, Integer numericPrecision, Integer numericScale) {
         if (StrUtil.equalsAnyIgnoreCase(columnType,
-                "varchar", "char", "text", "longtext", "mediumtext", "tinytext")) {
+                "varchar", "char", "text", "longtext", "mediumtext", "tinytext", "enum", "json")) {
             return ObjectFieldType.STRING;
         }
         if (StrUtil.equalsAnyIgnoreCase(columnType, "int", "mediumint", "smallint", "tinyint")) {
@@ -93,7 +93,7 @@ public class MySqlProvider implements DataSourceProvider {
         if (StrUtil.equalsAnyIgnoreCase(columnType, "date", "datetime", "timestamp", "time")) {
             return ObjectFieldType.DATE;
         }
-        if (StrUtil.equalsIgnoreCase(columnType, "blob")) {
+        if (StrUtil.equalsAnyIgnoreCase(columnType, "longblob", "blob")) {
             return ObjectFieldType.BYTE_ARRAY;
         }
         return null;

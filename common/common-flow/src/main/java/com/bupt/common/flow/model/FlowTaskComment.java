@@ -96,6 +96,12 @@ public class FlowTaskComment {
     private String customBusinessData;
 
     /**
+     * 审批人头像。
+     */
+    @TableField(value = "head_image_url")
+    private String headImageUrl;
+
+    /**
      * 创建者Id。
      */
     @TableField(value = "create_user_id")

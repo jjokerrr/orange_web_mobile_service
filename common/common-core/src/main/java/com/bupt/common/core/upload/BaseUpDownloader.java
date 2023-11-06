@@ -49,7 +49,12 @@ public abstract class BaseUpDownloader {
         } else {
             uploadPathBuilder.append(ApplicationConstant.UPLOAD_ATTACHMENT_PARENT_PATH);
         }
-        uploadPathBuilder.append("/").append(modelName).append("/").append(fieldName);
+        if (StringUtils.isNotBlank(modelName)) {
+            uploadPathBuilder.append("/").append(modelName);
+        }
+        if (StringUtils.isNotBlank(fieldName)) {
+            uploadPathBuilder.append("/").append(fieldName);
+        }
         return uploadPathBuilder.toString();
     }
 

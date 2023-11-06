@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/application-webadmin/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/application-webadmin/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-datafilter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-datafilter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-dbutil/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-dbutil/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-dict/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-dict/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-ext/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-ext/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-flow-online/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-flow-online/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-flow/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-flow/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-log/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-log/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-minio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-minio/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-mobile/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-mobile/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-online/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-online/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-redis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-sequence/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-sequence/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flow_bupt/application-webadmin/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flow_bupt/application-webadmin/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flow_bupt/common/common-core/src/main/java" charset="UTF-8" />
@@ -33,5 +63,7 @@
     <file url="file://$PROJECT_DIR$/flow_bupt/common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flow_bupt/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flow_bupt/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>
 </project>

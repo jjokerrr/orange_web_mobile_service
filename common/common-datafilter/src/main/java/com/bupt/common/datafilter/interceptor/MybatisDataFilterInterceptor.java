@@ -87,7 +87,6 @@ public class MybatisDataFilterInterceptor implements Interceptor {
      * 预先加载与数据过滤相关的数据到缓存，该函数会在(LoadDataFilterInfoListener)监听器中调用。
      */
     public void loadInfoWithDataFilter() {
-        @SuppressWarnings("all")
         Map<String, BaseDaoMapper> mapperMap =
                 ApplicationContextHolder.getApplicationContext().getBeansOfType(BaseDaoMapper.class);
         for (BaseDaoMapper<?> mapperProxy : mapperMap.values()) {
